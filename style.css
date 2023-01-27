@@ -7,7 +7,7 @@ body {
   margin: 0 auto;
   width: 550px;
   text-align: center;
-  font-family: "Urbanist", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 header {
@@ -70,6 +70,9 @@ input {
 
 img {
   width: 30%;
+  height: 9.1rem;
+  object-fit: fill;
+  border: 3px plum solid;
 }
 
 #movieDetail {
@@ -82,8 +85,56 @@ img {
   flex-direction: column;
 }
 
+/* ¨Typography */
+
+h2 {
+  font-size: 1.125rem;
+  line-height: 1.25rem;
+  margin-bottom: 0.6875rem;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.fa-star {
+  color: yellow;
+  margin-right: 0.5rem;
+}
+
+#line1 p,
+#line2 p {
+  font-size: 0.75rem;
+  line-height: 1.1rem;
+}
+
+#line p {
+  color: #6b7280;
+  font-size: 0.78rem;
+  line-height: 1.1rem;
+  height: 3.75rem;
+}
+
 #line1,
+#line2,
+#line3 {
+  margin-left: 1.5em;
+}
+
+#line1 {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
 #line2 {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
+}
+
+#line3 {
+  text-align: left;
 }
