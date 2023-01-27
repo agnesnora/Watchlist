@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Watchlist</title>
+    <link href="style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Urbanist:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Find your film</h1>
+      <a href="watchlist.html"><h4>My watchlist</h4></a>
+    </header>
+    <main>
+      <section class="input">
+        <div id="inputField">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="searchBar" placeholder=" Search for a movie" />
+          <button id="searchBtn">Search</button>
+        </div>
+      </section>
+
+      <section class="detail">
+        <div id="movieDetail">
+          <img src="cinema1.webp" />
+          <div id="movieInfo">
+            <div id="line1">
+              <p>Title</p>
+              <p>Rating</p>
+            </div>
+            <div id="line2">
+              <p>Time</p>
+              <p>Genre</p>
+              <button>Add to watchlist</button>
+            </div>
+            <p id="line3">
+              Plot Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Autem accusantium id magni debitis in explicabo adipisci. Dolor
+              molestias veniam maiores in ut corporis, explicabo corrupti atque
+              obcaecati quaerat soluta. A.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="index.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  margin: 0 auto;
+  width: 550px;
+  text-align: center;
+  font-family: "Urbanist", sans-serif;
+}
+
+header {
+  display: flex;
+  padding: 0 1.5em;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-image: url("cinema1.webp");
+  background-repeat: none;
+  background-size: cover;
+  height: 280px;
+  width: 100%;
+  /* border: red 2px solid; */
+  opacity: 90%;
+  background-color: black;
+}
+
+h1,
+h4 {
+  font-weight: 800;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+.input {
+  display: inline-block;
+  text-align: center;
+
+  border: 1px red solid;
+  border-radius: 7px;
+  width: 468px;
+  margin-right: 0;
+}
+
+#inputField {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+input {
+  border: none;
+  height: 38px;
+}
+
+#searchBtn {
+  display: block;
+  background-color: #fff;
+  border-left: #5d4d5a solid 1px;
+  border-right: none;
+  border-top: none;
+  border-bottom: none;
+  height: 38px;
+  text-align: center;
+  padding-left: 1em;
+}
+
+img {
+  width: 30%;
+}
+
+#movieDetail {
+  display: flex;
+  margin-top: 2rem;
+}
+
+#movieInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+#line1,
+#line2 {
+  display: flex;
+  justify-content: space-between;
+}
