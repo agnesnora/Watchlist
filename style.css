@@ -69,10 +69,10 @@ input {
 }
 
 img {
-  width: 30%;
-  height: 9.1rem;
+  width: 99px;
+  height: 147.41px;
+  margin-right: 21px;
   object-fit: fill;
-  border: 3px plum solid;
 }
 
 #movieDetail {
@@ -83,6 +83,23 @@ img {
 #movieInfo {
   display: flex;
   flex-direction: column;
+}
+
+#line1,
+#line2 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  line-height: 1.4rem;
+}
+
+#line3 {
+  text-align: left;
+  line-height: 1.4rem;
+}
+
+#list {
+  display: flex;
 }
 
 /* ¨Typography */
@@ -101,11 +118,11 @@ p {
 }
 
 .fa-star {
-  color: yellow;
+  color: #fec654;
   margin-right: 0.5rem;
 }
 
-#line1 p,
+/* #line1 p,
 #line2 p {
   font-size: 0.75rem;
   line-height: 1.1rem;
@@ -126,6 +143,7 @@ p {
 
 #line1 {
   display: flex;
+  flex-direction: column;
   justify-content: start;
   align-items: center;
 }
@@ -137,4 +155,4 @@ p {
 
 #line3 {
   text-align: left;
-}
+} */
