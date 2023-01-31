@@ -12,23 +12,25 @@ body {
 
 header {
   display: flex;
-  padding: 0 1.5em;
   justify-content: space-between;
-  align-items: flex-start;
-  background-image: url("cinema1.webp");
-  background-repeat: none;
-  background-size: cover;
-  height: 280px;
+  align-items: center;
+  background: #1a1a1a url(THJJRUhNlEc.png) center/cover no-repeat;
+  height: 208px;
   width: 100%;
-  /* border: red 2px solid; */
-  opacity: 90%;
-  background-color: black;
 }
-
 h1,
 h4 {
   font-weight: 800;
   color: white;
+  padding: 0 40px;
+}
+
+h1 {
+  font-size: 2.6em;
+}
+
+h4 {
+  font-size: 0.8em;
 }
 
 a {
@@ -39,7 +41,7 @@ a {
   display: inline-block;
   text-align: center;
 
-  border: 1px red solid;
+  border: 1px rgb(7, 7, 7) solid;
   border-radius: 7px;
   width: 468px;
   margin-right: 0;
@@ -64,15 +66,43 @@ input {
   border-top: none;
   border-bottom: none;
   height: 38px;
+  border-radius: 7px;
+  border: none;
   text-align: center;
   padding-left: 1em;
+}
+#addBtn {
+  border: none;
+  background-color: #fff;
+  margin-left: 37px;
+}
+
+.fa-circle-plus {
+  color: magenta;
+  margin-right: 2px;
 }
 
 img {
   width: 99px;
   height: 147.41px;
-  margin-right: 21px;
   object-fit: fill;
+}
+hr {
+  margin: 0;
+}
+
+#diapositive {
+  text-align: center;
+}
+h3 {
+  margin-top: 0;
+  color: #dfdddd;
+  font-weight: 700;
+}
+
+#diapositive img {
+  margin-right: 0;
+  margin-top: 212px;
 }
 
 #movieDetail {
@@ -96,6 +126,12 @@ img {
 #line3 {
   text-align: left;
   line-height: 1.4rem;
+  margin-bottom: 34px;
+  color: #6b7280;
+  font-size: 0.875em;
+  line-height: 1.25em;
+  height: 3.75em;
+  margin-top: 0;
 }
 
 #list {
@@ -105,11 +141,11 @@ img {
 /* ¨Typography */
 
 h2 {
-  font-size: 1.125rem;
-  line-height: 1.25rem;
-  margin-bottom: 0.6875rem;
+  font-size: 1.125em;
+  line-height: 1.25em;
+  margin-bottom: 0;
   font-weight: 500;
-  margin-right: 0.5rem;
+  margin-right: 0.5em;
 }
 
 p {
@@ -122,17 +158,10 @@ p {
   margin-right: 0.5rem;
 }
 
-/* #line1 p,
+#line1 p,
 #line2 p {
   font-size: 0.75rem;
   line-height: 1.1rem;
-}
-
-#line p {
-  color: #6b7280;
-  font-size: 0.78rem;
-  line-height: 1.1rem;
-  height: 3.75rem;
 }
 
 #line1,
@@ -141,7 +170,12 @@ p {
   margin-left: 1.5em;
 }
 
-#line1 {
+.infoLine2 {
+  margin: 11px 19px 8px 0;
+  color: #111827;
+}
+
+/* #line1 {
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -154,5 +188,4 @@ p {
 }
 
 #line3 {
-  text-align: left;
-} */
+  text-align: left; */

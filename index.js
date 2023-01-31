@@ -3,8 +3,10 @@ let inputEl = document.getElementById("searchBar");
 let movieSearched;
 let movieId;
 let movieArray;
+let movieMylist = [];
 const movieEl = document.getElementById("movieDetail");
 const movieList = document.getElementById("movieList");
+
 searchBtn.addEventListener("click", handleSearch);
 
 inputEl.addEventListener("keyup", function () {
@@ -12,10 +14,11 @@ inputEl.addEventListener("keyup", function () {
   console.log("movieSearched:", movieSearched);
 });
 
-function handleSearch() {
-  console.log(movieSearched);
-  console.log("hello click");
+// addToWatchlistBtn.addEventListener("click", function () {
+//   console.log("add clicked");
+// });
 
+function handleSearch() {
   fetch(`http://www.omdbapi.com/?apikey=6e75e553&s=${inputEl.value}`)
     .then((res) => res.json())
     .then((data) => {
@@ -33,7 +36,6 @@ function apiCallByID(item) {
     .then((res) => res.json())
     .then((data) => {
       console.log("data ami nem logol:", data);
-      console.log("genre:", data.Genre);
 
       renderMovies(data);
     });
@@ -41,7 +43,8 @@ function apiCallByID(item) {
 
 function renderMovies(item) {
   console.log(item);
-  movieList.innerHTML += `<div id="movieDetail">
+  document.getElementById("diapositive").style.display = "none";
+  movieList.innerHTML += `  <div id="movieDetail">
   <img src="${item.Poster}" />
   <div id="movieInfo">
     <div id="line1">
@@ -50,9 +53,9 @@ function renderMovies(item) {
       <p>${item.imdbRating}</p>
     </div>
     <div id="line2">
-      <p>${item.Runtime}</p>
-      <p>${item.Genre}</p>
-      <button>Add to watchlist</button>
+      <p class="infoLine2">${item.Runtime}</p>
+      <p class="infoLine2">${item.Genre}</p>
+        <button class="infoLine2" id="addBtn" data-addbutton="${item.imdbID}">Add to watchlist</button>
     </div>
     <p id="line3">
     ${item.Plot}
@@ -60,4 +63,28 @@ function renderMovies(item) {
   </div>
 </div>
 <hr />`;
+
+  const addToWatchlistBtn = document.getElementById("addBtn");
+
+  // document.addEventListener("click", function (e) {
+  //   if (e.target.dataset.addbutton) {
+  //     console.log(e.target.dataset.addbutton);
+  //     movieId = e.target.dataset.addbutton;
+
+  //   }
+  // });
 }
+
+//  Making a function to add the items selected to an array of myWatchlist
+// I have the imdb ID to help identifying the item
+
+// function addToWatchlist() {
+//   console.log("add clicked");
+// }
+
+document.addEventListener("click", function (e) {
+  if (e.target.dataset.addbutton) {
+    console.log(e.target.dataset.addbutton);
+    movieId = e.target.dataset.addbutton;
+  }
+});
