@@ -3,7 +3,8 @@ let inputEl = document.getElementById("searchBar");
 let movieSearched;
 let movieId;
 let movieArray;
-let movieMylist = [];
+let currentLoadedMovies = {};
+let watchlist = [];
 const movieEl = document.getElementById("movieDetail");
 const movieList = document.getElementById("movieList");
 
@@ -11,7 +12,6 @@ searchBtn.addEventListener("click", handleSearch);
 
 inputEl.addEventListener("keyup", function () {
   movieSearched = inputEl.value;
-  console.log("movieSearched:", movieSearched);
 });
 
 // addToWatchlistBtn.addEventListener("click", function () {
@@ -19,6 +19,7 @@ inputEl.addEventListener("keyup", function () {
 // });
 
 function handleSearch() {
+  currentLoadedMovies = {};
   fetch(`http://www.omdbapi.com/?apikey=6e75e553&s=${inputEl.value}`)
     .then((res) => res.json())
     .then((data) => {
@@ -35,10 +36,18 @@ function apiCallByID(item) {
   fetch(`http://www.omdbapi.com/?apikey=6e75e553&i=${item.imdbID}`)
     .then((res) => res.json())
     .then((data) => {
-      console.log("data ami nem logol:", data);
-
       renderMovies(data);
+
+      pushToMovieMyList(data);
     });
+
+  // movieMylist.push(data);
+  console.log(currentLoadedMovies);
+}
+
+function pushToMovieMyList(data) {
+  currentLoadedMovies[data.imdbID] = data;
+  // console.log(movieMylist);
 }
 
 function renderMovies(item) {
@@ -65,26 +74,13 @@ function renderMovies(item) {
 <hr />`;
 
   const addToWatchlistBtn = document.getElementById("addBtn");
-
-  // document.addEventListener("click", function (e) {
-  //   if (e.target.dataset.addbutton) {
-  //     console.log(e.target.dataset.addbutton);
-  //     movieId = e.target.dataset.addbutton;
-
-  //   }
-  // });
 }
-
-//  Making a function to add the items selected to an array of myWatchlist
-// I have the imdb ID to help identifying the item
-
-// function addToWatchlist() {
-//   console.log("add clicked");
-// }
 
 document.addEventListener("click", function (e) {
   if (e.target.dataset.addbutton) {
     console.log(e.target.dataset.addbutton);
     movieId = e.target.dataset.addbutton;
+    watchlist.push(currentLoadedMovies[movieId]);
+    console.log(watchlist);
   }
 });
