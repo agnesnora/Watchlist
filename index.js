@@ -1,12 +1,25 @@
 const searchBtn = document.getElementById("searchBtn");
 let inputEl = document.getElementById("searchBar");
+let diaEl = document.getElementById("diapositive");
 let movieSearched;
 let movieId;
 let movieArray;
 let currentLoadedMovies = {};
 let watchlist = [];
+let headerEl = document.getElementById("header");
 const movieEl = document.getElementById("movieDetail");
 const movieList = document.getElementById("movieList");
+
+const watchlistBtn = document.getElementById("navigateToWatchlist");
+
+watchlistBtn.addEventListener("click", function () {
+  headerEl.innerHTML = `<h1>My watchlist</h1>
+  <a id="navigateToWatchlist"><h4>Search for film</h4></a>`;
+  movieList.innerHTML = ` <!-- <div id="movieDetail"></div> -->`;
+  watchlist.forEach(function (item) {
+    console.log(renderMyWatchList(item));
+  });
+});
 
 searchBtn.addEventListener("click", handleSearch);
 
@@ -14,11 +27,9 @@ inputEl.addEventListener("keyup", function () {
   movieSearched = inputEl.value;
 });
 
-// addToWatchlistBtn.addEventListener("click", function () {
-//   console.log("add clicked");
-// });
-
 function handleSearch() {
+  movieList.innerHTML = ` <!-- <div id="movieDetail"></div> -->`;
+
   currentLoadedMovies = {};
   fetch(`http://www.omdbapi.com/?apikey=6e75e553&s=${inputEl.value}`)
     .then((res) => res.json())
@@ -52,7 +63,8 @@ function pushToMovieMyList(data) {
 
 function renderMovies(item) {
   console.log(item);
-  document.getElementById("diapositive").style.display = "none";
+  diaEl.style.display = "none";
+  // document.getElementById("diapositive").style.display = "none";
   movieList.innerHTML += `  <div id="movieDetail">
   <img src="${item.Poster}" />
   <div id="movieInfo">
@@ -84,3 +96,29 @@ document.addEventListener("click", function (e) {
     console.log(watchlist);
   }
 });
+
+function renderMyWatchList(item) {
+  currentLoadedMovies = {};
+  diaEl.style.display = "none";
+  // document.getElementById("diapositive").style.display = "none";
+
+  movieList.innerHTML += `  <div id="movieDetail">
+    <img src="${item.Poster}" />
+    <div id="movieInfo">
+      <div id="line1">
+        <h2>${item.Title}</h2>
+        <i class="fa-solid fa-star"></i>
+        <p>${item.imdbRating}</p>
+      </div>
+      <div id="line2">
+        <p class="infoLine2">${item.Runtime}</p>
+        <p class="infoLine2">${item.Genre}</p>
+          <button class="infoLine2" id="addBtn" data-removeBtn="${item.imdbID}">Remove</button>
+      </div>
+      <p id="line3">
+      ${item.Plot}
+      </p>
+    </div>
+  </div>
+  <hr />`;
+}
