@@ -1,14 +1,11 @@
-const searchBtn = document.getElementById("searchBtn");
-let inputEl = document.getElementById("searchBar");
-let diaEl = document.getElementById("diapositive");
-let movieSearched;
+const inputEl = document.getElementById("searchBar");
+const diaEl = document.getElementById("diapositive");
+const headerEl = document.getElementById("header");
+const movieList = document.getElementById("movieList");
 let movieId;
 let movieArray;
 let currentLoadedMovies = {};
 let watchlist = [];
-let headerEl = document.getElementById("header");
-const movieEl = document.getElementById("movieDetail");
-const movieList = document.getElementById("movieList");
 
 function handleSearch() {
   movieList.innerHTML = ` <!-- <div id="movieDetail"></div> -->`;
@@ -17,9 +14,7 @@ function handleSearch() {
   fetch(`http://www.omdbapi.com/?apikey=6e75e553&s=${inputEl.value}`)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data.Search);
       movieArray = data.Search;
-
       movieArray.forEach((item) => {
         apiCallByID(item);
       });
@@ -31,23 +26,16 @@ function apiCallByID(item) {
     .then((res) => res.json())
     .then((data) => {
       renderMovies(data);
-
       pushToMovieMyList(data);
     });
-
-  // movieMylist.push(data);
-  console.log(currentLoadedMovies);
 }
 
 function pushToMovieMyList(data) {
   currentLoadedMovies[data.imdbID] = data;
-  // console.log(movieMylist);
 }
 
 function renderMovies(item) {
-  console.log(item);
   diaEl.style.display = "none";
-  // document.getElementById("diapositive").style.display = "none";
   movieList.innerHTML += `  <div id="movieDetail">
   <img src="${item.Poster}" />
   <div id="movieInfo">
@@ -67,20 +55,13 @@ function renderMovies(item) {
   </div>
 </div>
 <hr />`;
-
-  const addToWatchlistBtn = document.getElementById("addBtn");
 }
 
 document.addEventListener("click", function (e) {
-  console.log("e:", e);
   if (e.target.dataset.addbutton) {
-    console.log(e.target.dataset.addbutton);
-    console.log("add");
     movieId = e.target.dataset.addbutton;
     watchlist.push(currentLoadedMovies[movieId]);
-    console.log(watchlist);
   } else if (e.target.dataset.watchlistbtn) {
-    console.log("watchlist");
     headerEl.innerHTML = `<h1>My watchlist</h1>
     <a id="navigateToWatchlist" href="index.html"><h4>Search for film</h4></a>`;
     movieList.innerHTML = ` <!-- <div id="movieDetail"></div> -->`;
@@ -88,19 +69,15 @@ document.addEventListener("click", function (e) {
       renderMyWatchList(item);
     });
   } else if (e.target.dataset.search) {
-    movieSearched = inputEl.value;
-    console.log(movieSearched);
-
-    console.log("search");
+    const movieSearched = inputEl.value;
     handleSearch();
   }
 });
 
 function renderMyWatchList(item) {
-  // currentLoadedMovies = {};
+  currentLoadedMovies = {};
   diaEl.style.display = "none";
   document.getElementById("inputSection").style.display = "none";
-  // document.getElementById("diapositive").style.display = "none";
 
   movieList.innerHTML += `  <div id="movieDetail">
     <img src="${item.Poster}" />
