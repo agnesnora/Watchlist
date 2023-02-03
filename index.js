@@ -10,23 +10,6 @@ let headerEl = document.getElementById("header");
 const movieEl = document.getElementById("movieDetail");
 const movieList = document.getElementById("movieList");
 
-const watchlistBtn = document.getElementById("navigateToWatchlist");
-
-watchlistBtn.addEventListener("click", function () {
-  headerEl.innerHTML = `<h1>My watchlist</h1>
-  <a id="navigateToWatchlist"><h4>Search for film</h4></a>`;
-  movieList.innerHTML = ` <!-- <div id="movieDetail"></div> -->`;
-  watchlist.forEach(function (item) {
-    console.log(renderMyWatchList(item));
-  });
-});
-
-searchBtn.addEventListener("click", handleSearch);
-
-inputEl.addEventListener("keyup", function () {
-  movieSearched = inputEl.value;
-});
-
 function handleSearch() {
   movieList.innerHTML = ` <!-- <div id="movieDetail"></div> -->`;
 
@@ -89,17 +72,34 @@ function renderMovies(item) {
 }
 
 document.addEventListener("click", function (e) {
+  console.log("e:", e);
   if (e.target.dataset.addbutton) {
     console.log(e.target.dataset.addbutton);
+    console.log("add");
     movieId = e.target.dataset.addbutton;
     watchlist.push(currentLoadedMovies[movieId]);
     console.log(watchlist);
+  } else if (e.target.dataset.watchlistbtn) {
+    console.log("watchlist");
+    headerEl.innerHTML = `<h1>My watchlist</h1>
+    <a id="navigateToWatchlist" href="index.html"><h4>Search for film</h4></a>`;
+    movieList.innerHTML = ` <!-- <div id="movieDetail"></div> -->`;
+    watchlist.forEach(function (item) {
+      renderMyWatchList(item);
+    });
+  } else if (e.target.dataset.search) {
+    movieSearched = inputEl.value;
+    console.log(movieSearched);
+
+    console.log("search");
+    handleSearch();
   }
 });
 
 function renderMyWatchList(item) {
-  currentLoadedMovies = {};
+  // currentLoadedMovies = {};
   diaEl.style.display = "none";
+  document.getElementById("inputSection").style.display = "none";
   // document.getElementById("diapositive").style.display = "none";
 
   movieList.innerHTML += `  <div id="movieDetail">

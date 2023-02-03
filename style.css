@@ -106,8 +106,7 @@ h3 {
   margin-top: 212px;
 }
 
-#movieDetail,
-#moviesInWatchList {
+#movieDetail {
   display: flex;
   margin-top: 2rem;
 }
