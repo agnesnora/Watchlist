@@ -87,7 +87,7 @@ function renderMovies(item) {
     <div id="line2">
       <p class="infoLine2">${item.Runtime}</p>
       <p class="infoLine2">${item.Genre}</p>
-        <button class="infoLine2" id="addBtn" data-addbutton="${item.imdbID}">Add to watchlist</button>
+      <i class="fa-solid fa-circle-plus" data-addbutton="${item.imdbID}"><button class="infoLine2" id="addBtn" >Add to watchlist</button></i>
     </div>
     <p id="line3">
     ${item.Plot}
@@ -114,7 +114,7 @@ function addToWatchListHTML(item) {
     <div id="line2">
       <p class="infoLine2">${item.Runtime}</p>
       <p class="infoLine2">${item.Genre}</p>
-        <button class="infoLine2" id="addBtn" data-removebtn="${item.imdbID}">Remove</button>
+      <i class="fa-solid fa-circle-minus" data-removebtn="${item.imdbID}"><button class="infoLine2" id="addBtn" >Remove</button></i>
     </div>
     <p id="line3">
     ${item.Plot}

@@ -75,12 +75,7 @@ input {
 #addBtn {
   border: none;
   background-color: #fff;
-  margin-left: 37px;
-}
-
-.fa-circle-plus {
-  color: magenta;
-  margin-right: 2px;
+  margin-left: 0px;
 }
 
 img {
@@ -148,6 +143,10 @@ h2 {
   font-weight: 500;
   margin-right: 0.5em;
 }
+#line1 h2 {
+  line-height: 1.4em;
+  margin-top: 0;
+}
 
 p {
   margin-top: 0;
@@ -156,13 +155,20 @@ p {
 
 .fa-star {
   color: #fec654;
-  margin-right: 0.5rem;
 }
 
 #line1 p,
 #line2 p {
   font-size: 0.75rem;
   line-height: 1.1rem;
+}
+
+#line2 p {
+  margin-right: 1.875em;
+}
+i {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 #line1,
@@ -175,18 +181,3 @@ p {
   margin: 11px 19px 8px 0;
   color: #111827;
 }
-
-/* #line1 {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-}
-
-#line2 {
-  display: flex;
-  justify-content: start;
-}
-
-#line3 {
-  text-align: left; */
