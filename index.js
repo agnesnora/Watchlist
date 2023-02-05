@@ -1,5 +1,5 @@
 const inputEl = document.getElementById("searchBar");
-const diaEl = document.getElementById("diapositive");
+let diaEl = document.getElementById("diapositive");
 const headerEl = document.getElementById("header");
 const movieList = document.getElementById("movieList");
 let movieId;
@@ -48,13 +48,17 @@ function handleSearch() {
   fetch(`http://www.omdbapi.com/?apikey=6e75e553&s=${inputEl.value}`)
     .then((res) => res.json())
     .then((data) => {
-      movieArray = data.Search;
-      movieArray.forEach((item) => {
-        apiCallByID(item);
-      });
-    });
+      if (!data.Search) {
+        renderNotFound();
+      } else {
+        movieArray = data.Search;
+        movieArray.forEach((item) => {
+          apiCallByID(item);
+        });
+      }
 
-  inputEl.value = "";
+      inputEl.value = "";
+    });
 }
 
 function apiCallByID(item) {
@@ -77,6 +81,7 @@ function saveToLocalStorage() {
 // FUNCTIONS FOR RENDERING
 
 function renderMovies(item) {
+  document.getElementById("message").innerHTML = ``;
   diaEl.style.display = "none";
   movieList.innerHTML += `  <div id="movieDetail">
   <img src="${item.Poster}" />
@@ -130,4 +135,10 @@ function renderWatchlistHeader() {
   currentLoadedMovies = {};
   diaEl.style.display = "none";
   document.getElementById("inputField").style.display = "none";
+}
+
+function renderNotFound() {
+  document.getElementById(
+    "message"
+  ).innerHTML = `<h3>Unable to find what you are looking for.Please try another search.</h3>`;
 }
