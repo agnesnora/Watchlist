@@ -17,6 +17,7 @@ header {
   background: #1a1a1a url(images/THJJRUhNlEc.png) center/cover no-repeat;
   height: 208px;
   width: 100%;
+  position: relative;
 }
 h1,
 h4 {
@@ -42,21 +43,29 @@ a {
   display: inline-block;
   text-align: center;
 
-  border: 1px rgb(7, 7, 7) solid;
   border-radius: 7px;
   width: 468px;
-  margin-right: 0;
+  /* margin-right: 0;
+} */
 }
-
 #inputField {
+  background-color: #fff;
+  width: 462px;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  border: #d1d5db 1px solid;
+  border-radius: 7px;
+  text-align: center;
   justify-content: space-between;
+  position: absolute;
+  z-index: 3;
+  margin-top: -2.5em;
+
+  margin-left: auto;
 }
 input {
   border: none;
   height: 38px;
+  background-color: #fff;
 }
 
 #searchBtn {
@@ -82,6 +91,8 @@ img {
   width: 99px;
   height: 147.41px;
   object-fit: fill;
+  margin-bottom: 1.3125em;
+  margin-top: 1.1325em;
 }
 hr {
   margin: 0;
@@ -103,11 +114,12 @@ h3 {
 
 #movieDetail {
   display: flex;
-  margin-top: 2rem;
+  margin-top: 0;
 }
 
 #movieInfo {
   display: flex;
+  margin-top: 2em;
   flex-direction: column;
 }
 
@@ -116,18 +128,24 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  line-height: 1.4rem;
+  line-height: 1.4em;
 }
 
 #line3 {
   text-align: left;
-  line-height: 1.4rem;
-  margin-bottom: 34px;
+  line-height: 1.4em;
+
   color: #6b7280;
   font-size: 0.875em;
-  line-height: 1.25em;
+  line-height: 1.4em;
   height: 3.75em;
   margin-top: 0;
+  height: 3.75em;
+}
+
+#line3 p {
+  height: 60px;
+  /* text-overflow: ellipsis; */
 }
 
 #list {
@@ -159,8 +177,7 @@ p {
 
 #line1 p,
 #line2 p {
-  font-size: 0.75rem;
-  line-height: 1.1rem;
+  font-size: 0.75em;
 }
 
 #line2 p {

@@ -53,6 +53,8 @@ function handleSearch() {
         apiCallByID(item);
       });
     });
+
+  inputEl.value = "";
 }
 
 function apiCallByID(item) {
@@ -127,5 +129,5 @@ function addToWatchListHTML(item) {
 function renderWatchlistHeader() {
   currentLoadedMovies = {};
   diaEl.style.display = "none";
-  document.getElementById("inputSection").style.display = "none";
+  document.getElementById("inputField").style.display = "none";
 }
