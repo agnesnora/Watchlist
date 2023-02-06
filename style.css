@@ -19,37 +19,23 @@ header {
   width: 100%;
   position: relative;
 }
-h1,
-h4 {
-  font-weight: 800;
-  color: white;
-  padding: 0 40px;
-}
 
-h1 {
-  font-size: 2.6em;
-}
-
-h4 {
-  font-size: 0.8em;
-}
-
-#message h3 {
-  font-size: 1.125em;
-  margin-top: 13em;
-}
 a {
   text-decoration: none;
   color: white;
+  cursor: pointer;
 }
+
+/******************
+ Searchbar & input*/
 
 .input {
   display: inline-block;
   text-align: center;
-
   border-radius: 7px;
   width: 468px;
 }
+
 #searchBar {
   background: #fff;
   width: 20em;
@@ -66,13 +52,20 @@ a {
   position: absolute;
   z-index: 3;
   margin-top: -2.5em;
-
   margin-left: auto;
 }
+
 input {
   border: none;
   height: 38px;
   background-color: #fff;
+}
+
+/******************
+Buttons************/
+
+button {
+  cursor: pointer;
 }
 
 #searchBtn {
@@ -94,6 +87,9 @@ input {
   margin-left: 0px;
 }
 
+/******************
+Listed movies layout*/
+
 img {
   width: 99px;
   height: 147.41px;
@@ -107,11 +103,6 @@ hr {
 
 #diapositive {
   text-align: center;
-}
-h3 {
-  margin-top: 0;
-  color: #dfdddd;
-  font-weight: 700;
 }
 
 #diapositive img {
@@ -162,12 +153,38 @@ h3 {
 
 /* ¨Typography */
 
+h1,
+h4 {
+  font-weight: 800;
+  color: white;
+  margin: 0 40px;
+}
+
+h1 {
+  font-size: 2.6em;
+}
+
+h4 {
+  font-size: 0.8em;
+}
+
+#message h3 {
+  font-size: 1.125em;
+  margin-top: 13em;
+}
+
 h2 {
   font-size: 1.125em;
   line-height: 1.25em;
   margin-bottom: 0;
   font-weight: 500;
   margin-right: 0.5em;
+}
+
+h3 {
+  margin-top: 0;
+  color: #dfdddd;
+  font-weight: 700;
 }
 #line1 h2 {
   line-height: 1.4em;
@@ -191,6 +208,7 @@ p {
 #line2 p {
   margin-right: 1.875em;
 }
+
 i {
   margin-left: 0.5em;
   margin-right: 0.5em;
