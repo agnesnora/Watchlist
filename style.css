@@ -49,8 +49,6 @@ a {
 
   border-radius: 7px;
   width: 468px;
-  /* margin-right: 0;
-} */
 }
 #searchBar {
   background: #fff;
@@ -207,4 +205,15 @@ i {
 .infoLine2 {
   margin: 11px 19px 8px 0;
   color: #111827;
+}
+#empty a {
+  color: #000000;
+}
+#empty h3 {
+  line-height: 1.78em;
+}
+#empty {
+  margin-top: 11.3em;
+  font-size: 0.875em;
+  font-weight: 700;
 }

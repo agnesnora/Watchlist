@@ -13,15 +13,20 @@ document.addEventListener("click", function (e) {
   if (e.target.dataset.addbutton) {
     movieId = e.target.dataset.addbutton;
     watchlist.push(currentLoadedMovies[movieId]);
-    console.log(watchlist);
   } else if (e.target.dataset.watchlistbtn) {
     headerEl.innerHTML = `<h1>My watchlist</h1>
     <a id="navigateToWatchlist" href="index.html"><h4>Search for film</h4></a>`;
     movieList.innerHTML = ` <!-- <div id="movieDetail"></div> -->`;
-    watchlist.forEach(function (item) {
-      renderMyWatchList(item);
-    });
-    saveToLocalStorage();
+
+    if (watchlist.length === 0) {
+      console.log("empty");
+      movieList.innerHTML = renderEmpty();
+    } else {
+      watchlist.forEach(function (item) {
+        renderMyWatchList(item);
+      });
+      saveToLocalStorage();
+    }
   } else if (e.target.dataset.removebtn) {
     watchlist = watchlist.filter(
       (deletedMovie) => deletedMovie.imdbID !== e.target.dataset.removebtn
@@ -33,6 +38,9 @@ document.addEventListener("click", function (e) {
     });
 
     saveToLocalStorage();
+    if (watchlist.length === 0) {
+      movieList.innerHTML = renderEmpty();
+    }
   } else if (e.target.dataset.search) {
     const movieSearched = inputEl.value;
     handleSearch();
@@ -141,4 +149,13 @@ function renderNotFound() {
   document.getElementById(
     "message"
   ).innerHTML = `<h3>Unable to find what you are looking for.Please try another search.</h3>`;
+}
+
+function renderEmpty() {
+  return ` <div id="empty">
+  
+  <h3>Your watchlist is looking a little empty...</h3>
+  <a href="index.html" ><p> <i class="fa-solid fa-circle-plus"></i>Let's add some movies</p></a>
+  </div>
+  `;
 }
