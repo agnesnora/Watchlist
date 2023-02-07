@@ -6,7 +6,7 @@ let movieId;
 let movieArray;
 let currentLoadedMovies = {};
 let watchlist = JSON.parse(localStorage.getItem("addedToWacthlist") || "[]");
-
+let searchedMovie;
 // EVENT LISTENER
 
 document.addEventListener("click", function (e) {
@@ -51,10 +51,11 @@ document.addEventListener("click", function (e) {
 // FUNCTIONS
 
 function handleSearch() {
+  searchedMovie = inputEl.value;
   movieList.innerHTML = ` <!-- <div id="movieDetail"></div> -->`;
 
   // currentLoadedMovies = {};
-  fetch(`http://www.omdbapi.com/?apikey=6e75e553&s=${inputEl.value}`)
+  fetch(`http://www.omdbapi.com/?apikey=6e75e553&s=${searchedMovie}`)
     .then((res) => res.json())
     .then((data) => {
       if (!data.Search) {
