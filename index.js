@@ -13,6 +13,7 @@ document.addEventListener("click", function (e) {
   if (e.target.dataset.addbutton) {
     movieId = e.target.dataset.addbutton;
     watchlist.push(currentLoadedMovies[movieId]);
+    console.log(watchlist);
   } else if (e.target.dataset.watchlistbtn) {
     headerEl.innerHTML = `<h1>My watchlist</h1>
     <a id="navigateToWatchlist" href="index.html"><h4>Search for film</h4></a>`;
