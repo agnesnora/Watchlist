@@ -55,7 +55,7 @@ function handleSearch() {
   movieList.innerHTML = ` <!-- <div id="movieDetail"></div> -->`;
 
   // currentLoadedMovies = {};
-  fetch(`http://www.omdbapi.com/?apikey=6e75e553&s=${searchedMovie}`)
+  fetch(`https://www.omdbapi.com/?apikey=6e75e553&s=${searchedMovie}`)
     .then((res) => res.json())
     .then((data) => {
       if (!data.Search) {
@@ -72,7 +72,7 @@ function handleSearch() {
 }
 
 function apiCallByID(item) {
-  fetch(`http://www.omdbapi.com/?apikey=6e75e553&i=${item.imdbID}`)
+  fetch(`https://www.omdbapi.com/?apikey=6e75e553&i=${item.imdbID}`)
     .then((res) => res.json())
     .then((data) => {
       renderMovies(data);
