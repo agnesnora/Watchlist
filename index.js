@@ -6,7 +6,7 @@ let movieId;
 let movieArray;
 let currentLoadedMovies = {};
 let watchlist = JSON.parse(localStorage.getItem("addedToWacthlist") || "[]");
-let searchedMovie;
+// let searchedMovie;
 // EVENT LISTENER
 
 document.addEventListener("click", function (e) {
@@ -20,7 +20,6 @@ document.addEventListener("click", function (e) {
     movieList.innerHTML = ` <!-- <div id="movieDetail"></div> -->`;
 
     if (watchlist.length === 0) {
-      console.log("empty");
       movieList.innerHTML = renderEmpty();
     } else {
       watchlist.forEach(function (item) {
@@ -43,7 +42,7 @@ document.addEventListener("click", function (e) {
       movieList.innerHTML = renderEmpty();
     }
   } else if (e.target.dataset.search) {
-    const movieSearched = inputEl.value;
+    // const movieSearched = inputEl.value;
     handleSearch();
   }
 });
@@ -51,11 +50,11 @@ document.addEventListener("click", function (e) {
 // FUNCTIONS
 
 function handleSearch() {
-  searchedMovie = inputEl.value;
+  // searchedMovie = inputEl.value;
   movieList.innerHTML = ` <!-- <div id="movieDetail"></div> -->`;
 
   // currentLoadedMovies = {};
-  fetch(`https://www.omdbapi.com/?apikey=6e75e553&s=${searchedMovie}`)
+  fetch(`https://www.omdbapi.com/?apikey=6e75e553&s=${inputEl.value}`)
     .then((res) => res.json())
     .then((data) => {
       if (!data.Search) {

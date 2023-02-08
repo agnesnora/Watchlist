@@ -235,3 +235,12 @@ i {
   font-size: 0.875em;
   font-weight: 700;
 }
+
+#line3 {
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+  line-height: 1.2em;
+  text-overflow: ellipsis;
+}
